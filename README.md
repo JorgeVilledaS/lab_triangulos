@@ -80,7 +80,7 @@ Los resultados dependen del equipo y su carga. Los cálculos exactos con `i128` 
 
 ## Perfil de ejecución
 
-No estaba instalado `cargo-flamegraph` en el entorno. Se implementó un **perfilador por instrumentación** en [src/profiler.rs](src/profiler.rs), activado con la característica `profile`. Registra llamadas, tiempo inclusivo y tiempo exclusivo de ámbitos anidados mediante `Instant`. Se ejecutaron 100 repeticiones por algoritmo relleno, sin imágenes ni comparación de conjuntos. El perfil real se entrega como [perfil.csv](resultados/perfil.csv) y [perfil.svg](resultados/perfil.svg).
+Se implementó un **perfilador por instrumentación** en [src/profiler.rs](src/profiler.rs), activado con la característica `profile`. Registra llamadas, tiempo inclusivo y tiempo exclusivo de ámbitos anidados mediante `Instant`. Se ejecutaron 100 repeticiones por algoritmo relleno, sin imágenes ni comparación de conjuntos. El perfil real se entrega como [perfil.csv](resultados/perfil.csv) y [perfil.svg](resultados/perfil.svg).
 
 ![Perfil por instrumentación](resultados/perfil.svg)
 
