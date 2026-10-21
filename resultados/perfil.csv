@@ -1,0 +1,8 @@
+scope,calls,inclusive_ms,exclusive_ms
+barycentric_emit,119000,145.327900,145.327900
+barycentric_geometry,119000,727.806500,727.806500
+rasterize,200,1323.956000,276.480700
+scanline_emit,118600,126.189900,126.189900
+scanline_geometry,119000,10.100300,10.100300
+triangle_barycentric,700,894.468000,21.333600
+triangle_scanline,700,153.007300,16.717100

@@ -1,0 +1,11 @@
+[package]
+name = "laboratorio-triangulos"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+profile = []
+
+[profile.release]
+debug = true
+

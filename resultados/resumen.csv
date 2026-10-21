@@ -1,0 +1,4 @@
+modo,fragmentos_por_ejecucion,mediana_ms,min_ms,max_ms
+wireframe,3962,0.029115,0.028268,0.110851
+baricentrico,172419,8.780444,8.400948,9.304102
+scanline,172419,2.219865,1.962220,2.708994

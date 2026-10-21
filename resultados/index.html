@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laboratorio · Rasterización de triángulos</title>
+<style>
+body{margin:0;background:#101827;color:#edf4ff;font:16px/1.6 system-ui,sans-serif}main{max-width:1400px;margin:auto;padding:40px 24px}h1{font-size:clamp(28px,4vw,48px);line-height:1.2}p{color:#b7c6dc}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}figure{margin:0;padding:16px;border:1px solid #314057;border-radius:12px;background:#162237}img{width:100%;height:auto;image-rendering:pixelated}figcaption{font-weight:600;margin-bottom:10px}strong,a{color:#24c4b4}.profile{max-width:1000px;margin-top:20px}table{border-collapse:collapse;width:100%;margin:20px 0}td,th{text-align:left;padding:12px;border-bottom:1px solid #314057}small{color:#b7c6dc}
+</style>
+<main>
+<p>GRÁFICAS POR COMPUTADORA · RUST</p>
+<h1>Un triángulo, tres modos</h1>
+<p>Imágenes generadas por el programa sobre un framebuffer de 640 × 480. Ambos rellenos incluyen el centro del píxel cuando coincide con una arista.</p>
+<div class="grid">
+<figure><figcaption>01 · Contorno / Bresenham</figcaption><img src="wireframe.bmp" alt="Triángulos dibujados con sus tres bordes"></figure>
+<figure><figcaption>02 · Relleno baricéntrico</figcaption><img src="baricentrico.bmp" alt="Triángulos rellenos evaluando coordenadas baricéntricas"></figure>
+<figure><figcaption>03 · Relleno scanline</figcaption><img src="scanline.bmp" alt="Los mismos triángulos rellenos por filas"></figure>
+</div>
+<h2>Comparación exacta</h2>
+<p><strong>Cero posiciones diferentes</strong> en los siete casos del enunciado. Cada relleno genera 172.419 fragmentos por ejecución. Se aprobaron seis tests, incluyendo 2.000 triángulos subpíxel adicionales y permutaciones de vértices.</p>
+<h2>Mediciones</h2>
+<p>Nueve rondas de 100 ejecuciones, compilación optimizada y sin instrumentación. Las cifras siguientes corresponden a la ejecución entregada; los CSV se actualizan al repetir el benchmark.</p>
+<table><thead><tr><th>Modo</th><th>Mediana por ejecución</th><th>Fragmentos</th></tr></thead><tbody><tr><td>Contorno</td><td>0,029115 ms</td><td>3.962</td></tr><tr><td>Baricéntricas</td><td>8,780444 ms</td><td>172.419</td></tr><tr><td>Scanline</td><td>2,219865 ms</td><td>172.419</td></tr></tbody></table>
+<p><a href="mediciones.csv">Rondas completas</a> · <a href="comparacion.csv">Comparación por caso</a> · <a href="../README.md">Informe y comandos</a></p>
+<h2>Perfil por instrumentación</h2>
+<p>Registro real de tiempos por ámbitos en una ejecución separada. La geometría domina en el relleno baricéntrico; la emisión domina dentro del relleno scanline. El perfil incluye sobrecoste del instrumento.</p>
+<img class="profile" src="perfil.svg" alt="Barras de tiempo exclusivo acumulado por función instrumentada">
+<p><a href="perfil.csv">Datos completos del perfil</a></p>
+</main>
+</html>

@@ -1,0 +1,8 @@
+caso,baricentrico,scanline,diferencias,duplicados
+pequeno,1405,1405,0,0
+grande,71825,71825,0,0
+horizontal,8810,8810,0,0
+vertical,12000,12000,0,0
+orden_inverso,71825,71825,0,0
+fuera_del_framebuffer,6554,6554,0,0
+degenerado,0,0,0,0
