@@ -13,7 +13,7 @@ cargo run --release -- --benchmark-triangles
 cargo run --release --features profile -- --profile-triangles
 ```
 
-El primer comando compara los algoritmos y escribe las tres imágenes BMP de 640 × 480. Abre [resultados/index.html](resultados/index.html) en un navegador para verlas juntas. El programa no necesita ventana: procesa los fragmentos y los guarda directamente como imágenes. Los siguientes comandos ejecutan pruebas, mediciones sin instrumentación y el perfil, respectivamente.
+El primer comando compara los algoritmos y escribe las tres imágenes BMP de 640 × 480. 
 
 ## Implementación
 
@@ -73,7 +73,6 @@ Scanline fue aproximadamente **3,96 veces más rápido** en este conjunto, gener
 
 La región medida incluye los cálculos, creación, crecimiento, concatenación y liberación de los `Vec`. Excluye comparación de conjuntos, imágenes, impresión, escritura de archivos y esperas. El conjunto contiene el triángulo grande dos veces, una por orientación: el recuento es de fragmentos generados, no de píxeles únicos de la escena.
 
-Los resultados dependen del equipo y su carga. Los cálculos exactos con `i128` y el vector temporal por fila del modo baricéntrico también influyen; estos números comparan estas implementaciones, no establecen una ventaja universal.
 
 - [Todas las rondas](resultados/mediciones.csv)
 - [Resumen de medianas](resultados/resumen.csv)
